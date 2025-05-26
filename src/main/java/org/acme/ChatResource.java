@@ -11,7 +11,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response; // For generating a simple session ID if needed
 
 /**
- * REST resource for chat interactions with comprehensive airline tools
+ * REST resource for chat interactions with multi-agent system
  */
 @Path("/chat")
 public class ChatResource {
@@ -22,18 +22,18 @@ public class ChatResource {
 
     // If ChatResource calls WeatherAgent directly:
     @Inject
-    AirlineAgent airlineAgent;
+    ManagerAgent managerAgent;
 
     /**
-     * Chat endpoint with comprehensive airline support
+     * Chat endpoint with multi-agent orchestration
      * @param query The user's query
      * @param sessionId A unique identifier for the conversation session
-     * @return Response from the AI
+     * @return Response from the AI system
      */
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public Response chat(@QueryParam("q") String query, @QueryParam("sessionId") String sessionId) {
-        System.out.println("=== CHAT RESOURCE CALLED ===");
+        System.out.println("=== MULTI-AGENT CHAT RESOURCE CALLED ===");
         System.out.println("Received Query: " + query);
         System.out.println("Session ID: " + sessionId);
         
@@ -48,17 +48,17 @@ public class ChatResource {
             System.out.println("Generated new session ID: " + currentSessionId);
         }
 
-        System.out.println("=== CALLING AIRLINE AGENT ===");
+        System.out.println("=== CALLING MANAGER AGENT ===");
         System.out.println("Session ID: " + currentSessionId);
         System.out.println("User Query: " + query);
         
-        // Call the comprehensive airline agent
-        String response = airlineAgent.chat(currentSessionId, query);
+        // Call the manager agent which will orchestrate specialized agents
+        String response = managerAgent.chat(currentSessionId, query);
 
-        System.out.println("=== AIRLINE AGENT RESPONSE ===");
+        System.out.println("=== MANAGER AGENT RESPONSE ===");
         System.out.println("Response Length: " + response.length() + " characters");
         System.out.println("Response: " + response);
-        System.out.println("=== END CHAT RESOURCE ===");
+        System.out.println("=== END MULTI-AGENT CHAT RESOURCE ===");
 
         return Response.ok(response).build();
     }
