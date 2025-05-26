@@ -18,10 +18,10 @@ public class AirlineServiceTool {
     RetrieveServicesApi retrieveServicesApi;
 
     @Tool("Retrieve available airline services for a booking using PNR. This tool will provide all additional services that can be purchased or added to the booking.")
-    public String retrieveServices(@P("The PNR (record locator) for which to retrieve available services") String pnr) {
+    public String getAirlineServices(@P("The PNR (record locator) for which to retrieve available services") String pnr) {
         
         System.out.println("=== AIRLINE SERVICE TOOL CALLED ===");
-        System.out.println("Tool: retrieveServices");
+        System.out.println("Tool: getAirlineServices");
         System.out.println("LLM Extracted Parameters:");
         System.out.println("  - pnr: " + pnr);
         

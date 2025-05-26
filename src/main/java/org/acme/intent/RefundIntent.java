@@ -17,17 +17,15 @@ public class RefundIntent {
         System.out.println("  - pnr: " + pnr);
         System.out.println("  - lastName: " + lastName);
         
-        // Create JSON payload
-        ObjectNode payload = objectMapper.createObjectNode();
-        payload.put("pnr", pnr);
-        payload.put("lastName", lastName);
-        payload.put("action", "refund");
-        payload.put("targetAction", "cancelAndRefund");
-        payload.put("timestamp", System.currentTimeMillis());
+        // Create JSON payload similar to Python structure
+        ObjectNode refundInfo = objectMapper.createObjectNode();
+        refundInfo.put("pnr", pnr);
+        refundInfo.put("lastName", lastName);
+        refundInfo.put("timestamp", System.currentTimeMillis());
         
-        String jsonPayload = payload.toString();
+        String jsonPayload = refundInfo.toString();
         
-        System.out.println("Formatted Payload:");
+        System.out.println("Formatted JSON Payload:");
         System.out.println(jsonPayload);
         System.out.println("=== END REFUND INTENT ===");
         

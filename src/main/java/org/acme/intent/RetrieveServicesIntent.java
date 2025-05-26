@@ -16,15 +16,14 @@ public class RetrieveServicesIntent {
         System.out.println("Input Parameters:");
         System.out.println("  - pnr: " + pnr);
         
-        // Create JSON payload
-        ObjectNode payload = objectMapper.createObjectNode();
-        payload.put("pnr", pnr);
-        payload.put("action", "retrieve_services");
-        payload.put("timestamp", System.currentTimeMillis());
+        // Create JSON payload similar to Python structure
+        ObjectNode servicesInfo = objectMapper.createObjectNode();
+        servicesInfo.put("pnr", pnr);
+        servicesInfo.put("timestamp", System.currentTimeMillis());
         
-        String jsonPayload = payload.toString();
+        String jsonPayload = servicesInfo.toString();
         
-        System.out.println("Formatted Payload:");
+        System.out.println("Formatted JSON Payload:");
         System.out.println(jsonPayload);
         System.out.println("=== END RETRIEVE_SERVICES INTENT ===");
         

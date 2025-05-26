@@ -18,11 +18,11 @@ public class PnrTool {
     RetrievePnrApi retrievePnrApi;
 
     @Tool("Retrieve PNR information using PNR and last name. This tool will provide complete booking details including flight information, passenger details, and booking status.")
-    public String retrievePnr(@P("The PNR (record locator) for the booking") String pnr, 
+    public String getPnrDetails(@P("The PNR (record locator) for the booking") String pnr, 
                              @P("The passenger's last name") String lastName) {
         
         System.out.println("=== PNR TOOL CALLED ===");
-        System.out.println("Tool: retrievePnr");
+        System.out.println("Tool: getPnrDetails");
         System.out.println("LLM Extracted Parameters:");
         System.out.println("  - pnr: " + pnr);
         System.out.println("  - lastName: " + lastName);

@@ -18,13 +18,13 @@ public class RebookingTool {
     RebookingApi rebookingApi;
 
     @Tool("Rebook a flight to a new date and flight number using PNR and last name. This tool will change the existing booking to new flight details.")
-    public String rebooking(@P("The PNR (record locator) for the booking to rebook") String pnr, 
+    public String processRebooking(@P("The PNR (record locator) for the booking to rebook") String pnr, 
                            @P("The passenger's last name") String lastName,
                            @P("The new departure date in YYYY-MM-DD format") String newDepartureDate,
                            @P("The new flight number") String newFlightNumber) {
         
         System.out.println("=== REBOOKING TOOL CALLED ===");
-        System.out.println("Tool: rebooking");
+        System.out.println("Tool: processRebooking");
         System.out.println("LLM Extracted Parameters:");
         System.out.println("  - pnr: " + pnr);
         System.out.println("  - lastName: " + lastName);

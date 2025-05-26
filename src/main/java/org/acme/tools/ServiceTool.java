@@ -14,7 +14,7 @@ public class ServiceTool {
     ServiceService serviceService;
 
     @Tool("Get available services for a booking using PNR. This tool will provide all additional services that can be purchased or added to the booking.")
-    public String getServices(@P("The PNR (record locator) for which to retrieve available services") String pnr) {
+    public String getBookingServices(@P("The PNR (record locator) for which to retrieve available services") String pnr) {
         System.out.println("=== SERVICE TOOL CALLED ===");
         System.out.println("PNR parameter received: " + pnr);
         

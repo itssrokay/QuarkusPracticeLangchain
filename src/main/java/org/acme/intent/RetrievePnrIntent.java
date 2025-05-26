@@ -1,8 +1,9 @@
 package org.acme.intent;
 
-import jakarta.enterprise.context.ApplicationScoped;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+
+import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 public class RetrievePnrIntent {
@@ -16,16 +17,15 @@ public class RetrievePnrIntent {
         System.out.println("  - pnr: " + pnr);
         System.out.println("  - lastName: " + lastName);
         
-        // Create JSON payload
-        ObjectNode payload = objectMapper.createObjectNode();
-        payload.put("pnr", pnr);
-        payload.put("lastName", lastName);
-        payload.put("action", "retrieve_pnr");
-        payload.put("timestamp", System.currentTimeMillis());
+        // Create JSON payload similar to Python structure
+        ObjectNode pnrInfo = objectMapper.createObjectNode();
+        pnrInfo.put("pnr", pnr);
+        pnrInfo.put("lastName", lastName);
+        pnrInfo.put("timestamp", System.currentTimeMillis());
         
-        String jsonPayload = payload.toString();
+        String jsonPayload = pnrInfo.toString();
         
-        System.out.println("Formatted Payload:");
+        System.out.println("Formatted JSON Payload:");
         System.out.println(jsonPayload);
         System.out.println("=== END RETRIEVE_PNR INTENT ===");
         

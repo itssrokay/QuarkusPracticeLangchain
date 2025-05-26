@@ -18,11 +18,11 @@ public class RefundTool {
     RefundApi refundApi;
 
     @Tool("Check refund eligibility and process refund for a booking using PNR and last name. This tool will provide refund amount, policy details, and processing information.")
-    public String refund(@P("The PNR (record locator) for the booking to refund") String pnr, 
+    public String processRefund(@P("The PNR (record locator) for the booking to refund") String pnr, 
                         @P("The passenger's last name") String lastName) {
         
         System.out.println("=== REFUND TOOL CALLED ===");
-        System.out.println("Tool: refund");
+        System.out.println("Tool: processRefund");
         System.out.println("LLM Extracted Parameters:");
         System.out.println("  - pnr: " + pnr);
         System.out.println("  - lastName: " + lastName);
